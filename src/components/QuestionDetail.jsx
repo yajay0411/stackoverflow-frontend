@@ -71,7 +71,7 @@ const QuestionDetail = () => {
                 <div className='w-full flex justify-start items-center p-5'>
                     {questionTitle && <h1 className='text-[25px] font-semibold'>{questionTitle}</h1>}
                 </div>
-                <div className='w-full flex flex-col md:flex-row justify-between items-center md:items-center border-b-2'>
+                <div className='w-full flex flex-col md:flex-row justify-evenly items-center md:items-center border-b-2'>
                     <div className='sm:flex flex-col justify-center items-center p-5 order-1 md:order-none hidden'>
                         <img
                             src={UpVote}
