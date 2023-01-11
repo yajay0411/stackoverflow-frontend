@@ -2,6 +2,7 @@ import { Navbar, AllRoute, Footer, LeftSideBar, SmallDeviceMenuBar } from "./com
 import { GetAllQuestions } from './redux/actions/questionsActions';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import KommunicateChat from './Chat.jsx';
 
 
 
@@ -22,9 +23,10 @@ function App() {
         </div>
         <div className="w-full md:w-[80%] mb-10 sm:mb-0">
           <AllRoute />
+          <KommunicateChat />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
       <div className="w-full fixed bottom-5 md:hidden">
         <SmallDeviceMenuBar />
       </div>
