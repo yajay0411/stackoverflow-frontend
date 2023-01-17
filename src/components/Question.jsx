@@ -74,7 +74,7 @@ const Question = () => {
                                             <Link to={`/questions/${_id}`}><p className='text-blue-500 text-[18px] font-semibold'>{questionTitle}</p></Link>
                                             {questionTags && questionTags.map((tag, index) => (<p key={index} className="rounded-[10px] bg-[#8ed6f3] text-[#034058] px-2 py-2 mr-2 my-2 inline-block">{tag}</p>))}
                                         </div>
-                                        <div className='flex flex-col justify-center items-center p-1 mr-5'>
+                                        <div className='flex flex-col justify-center items-center sm:p-1 mr-5'>
                                             <div>
                                                 <p >Posted On : <span className='font-semibold'>{moment(postedOn).fromNow()}</span></p>
                                                 <div className='flex my-1'>
