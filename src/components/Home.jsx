@@ -60,7 +60,7 @@ const Home = () => {
                                     <div
                                         key={_id}
                                         className='w-full bg-[#fdf7e2] flex flex-col md:flex-row justify-between items-start md:items-center p-2 border-b-2 border-[#f1e5bc]'>
-                                        <div className='flex sm:flex-col lg:flex-row justify-between  sm:justify-evenly sm:items-center w-[150px] my-5'>
+                                        <div className='flex sm:flex-col lg:flex-row justify-between sm:justify-evenly sm:items-center w-[150px] my-5'>
                                             <div className='text-center'>
                                                 <p className='font-semibold'>{upVote.length - downVote.length}</p>
                                                 <p>Votes</p>
@@ -70,7 +70,7 @@ const Home = () => {
                                                 <p>Anwsers</p>
                                             </div>
                                         </div>
-                                        <div className='text-left md:w-[300px] order-[-1]'>
+                                        <div className='text-left md:w-[300px] order-[-1] md:order-none'>
                                             <Link to={`/questions/${_id}`}><p className='text-blue-500 text-[18px] font-semibold'>{questionTitle}</p></Link>
                                             {questionTags && questionTags.map((tag, index) => (<p key={index} className="rounded-[10px] bg-[#8ed6f3] text-[#034058] px-2 py-2 mr-2 my-2 inline-block">{tag}</p>))}
                                         </div>
