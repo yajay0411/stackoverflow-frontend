@@ -52,11 +52,12 @@ export const PostAnswer = ({ questionID, noOfAnswers, answerBody, userAnswered, 
     }
 }
 
-export const DeleteAnswer = ({ questionID, answerID, noOfAnswers }) => async (dispatch) => {
+export const DeleteAnswer = ({ questionID, answerID, noOfAnswers }, navigate) => async (dispatch) => {
     try {
         const { data } = await deleteAnswer(questionID, noOfAnswers, answerID);
         await dispatch({ type: "DELETE_ANSWER", payload: data });
-        await dispatch(GetSelectedQuestion(questionID));
+        navigate("/")
+        await dispatch(GetAllQuestions());
     } catch (error) {
         console.log(error.message);
     }

@@ -6,9 +6,9 @@ import "../index.css";
 const LeftSideBar = () => {
     return (
         <>
-            <div className='w-[15vw] fixed '>
+            <div className='fixed bg-white sm:bg-transparent top-16 sm:top-15 shadow-lg border-2 sm:shadow-none sm:border-none'>
                 <NavLink to="/"  >
-                    <div className='active:bg-gray-100 active:border-r-4 border-orange-400 py-3 px-5 mt-5 text-[14px] text-gray-500 active:font-bold active:text-black
+                    <div className='active:bg-gray-100 active:border-r-4 border-orange-400 py-3 px-5 text-[14px] text-gray-500 active:font-bold active:text-black
                      hover:text-black'>
                         Home
                     </div>

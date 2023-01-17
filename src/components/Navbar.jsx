@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Logo, Menu, Search } from '../assets';
 import { Navlinks } from '../constants';
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import { Avatar, Button, SearchInput } from './index.js';
+import { Avatar, Button, LeftSideBar, SearchInput } from './index.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentUser } from '../redux/actions/currentUserActions.js';
 import decode from "jwt-decode";
@@ -10,7 +10,10 @@ import decode from "jwt-decode";
 const Navbar = () => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [menu, setMenu] = useState(false);
+    const [search, setSearch] = useState(false);
 
     const User = useSelector((state) => { return state.currentUserReducer })
     // console.log(User)
@@ -29,16 +32,22 @@ const Navbar = () => {
                 }
             }
         }
+
         useEffect(() => {
             User && TokenExpire();
             dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
         }, [dispatch])
     }
-
-
     return (
         <div className='flex flex-col justify-center items-center sticky top-0 z-[9]'>
             <nav className='flex justify-around items-center w-full h-[60px] shadow-md bg-gray-100 border-t-4 border-orange-400 '>
+                <div className='w-[35px] m-2 hover:bg-gray-200 sm:hidden'>
+                    <img
+                        src={Menu}
+                        className="w-[100%]"
+                        onClick={() => (setMenu((prev) => (!prev)))}
+                    />
+                </div>
                 <div className='w-[150px] sm:w-[200px] sm:p-3 sm:mx-2 hover:bg-gray-200'>
                     <Link to="/">
                         <img
@@ -46,6 +55,13 @@ const Navbar = () => {
                             className="w-[100%]"
                         />
                     </Link>
+                </div>
+                <div className='w-[18px] m-2 hover:bg-gray-200 sm:hidden'>
+                    <img
+                        src={Search}
+                        className="w-[100%]"
+                        onClick={() => (setSearch((prev) => (!prev)))}
+                    />
                 </div>
                 <div className='hidden sm:flex'>
                     <ul className='flex'>
@@ -68,7 +84,7 @@ const Navbar = () => {
                         placeholdertext="Search..."
                         classnames='text-[14px] outline-blue-300 focus:shadow-md shadow-blue p-1 pl-10 border-2 border-gray-300 rounded-md relative w-full' />
                 </div>
-                <div className='flex items-center  '>
+                <div className='flex items-center justify-center'>
                     {!User ?
                         (<Link
                             to="/auth"
@@ -81,7 +97,7 @@ const Navbar = () => {
                             <Link to={`/users/${User?.result?._id}`}>
                                 <Avatar
                                     name={User?.result?.name.charAt(0).toUpperCase()}
-                                    classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-2 py-2 px-4' />
+                                    classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-1 sm:m-2 py-2 px-4' />
                             </Link>
                             <Button
                                 onClick={handleLogOut}
@@ -93,13 +109,18 @@ const Navbar = () => {
                     }
                 </div>
             </nav>
-            <div className='flex justify-center items-center md:hidden my-2 w-full'>
-                <SearchInput
-                    image={Search}
-                    imageclass="w-[14px]  relative left-[30px] z-[9]"
-                    placeholdertext="Search..."
-                    classnames='w-full text-[14px] outline-blue-300 focus:shadow-md shadow-blue p-1 pl-10 border-2 border-gray-300 rounded-md relative mr-3' />
-            </div>
+            {search &&
+                <div className='flex justify-center items-center md:hidden mt-2 w-full'>
+                    <SearchInput
+                        image={Search}
+                        imageclass="w-[14px]  relative left-[30px] z-[9]"
+                        placeholdertext="Search..."
+                        classnames='w-full text-[14px] outline-blue-300 focus:shadow-md shadow-blue p-1 pl-10 border-2 border-gray-300 rounded-md relative mr-3' />
+                </div>}
+            {menu &&
+                <div className='flex justify-start items-center md:hidden w-full z-10'>
+                    <LeftSideBar />
+                </div>}
         </div>
 
     )

@@ -24,11 +24,8 @@ function App() {
         <div className="w-full md:w-[80%] mb-10 sm:mb-0">
           <AllRoute />
           <KommunicateChat />
+          <Footer />
         </div>
-      </div>
-      {/* <Footer /> */}
-      <div className="w-full fixed bottom-5 md:hidden">
-        <SmallDeviceMenuBar />
       </div>
     </div>
   )

@@ -53,7 +53,7 @@ const QuestionDetail = () => {
     }
 
     const handleDeleteAnswer = (answerID) => {
-        dispatch(DeleteAnswer({ questionID, answerID, noOfAnswers: answer.length - 1 }));
+        dispatch(DeleteAnswer({ questionID, answerID, noOfAnswers: answer.length - 1 }, navigate));
     }
 
     const handleUpVote = () => {
@@ -68,11 +68,11 @@ const QuestionDetail = () => {
     return (
         <>
             <div className='w-full flex flex-col justify-center items-center'>
-                <div className='w-full flex justify-start items-center p-5'>
+                <div className='w-full flex justify-start items-center px-5 p-5'>
                     {questionTitle && <h1 className='text-[25px] font-semibold'>{questionTitle}</h1>}
                 </div>
-                <div className='w-full flex flex-col md:flex-row justify-evenly items-center md:items-center border-b-2'>
-                    <div className='sm:flex flex-col justify-center items-center p-5 order-1 md:order-none hidden'>
+                <div className='w-full flex flex-col md:flex-row justify-evenly items-start md:items-center border-b-2'>
+                    <div className='md:flex flex-col justify-center items-center p-5 order-1 md:order-none hidden'>
                         <img
                             src={UpVote}
                             onClick={handleUpVote}
@@ -84,7 +84,7 @@ const QuestionDetail = () => {
                             className="w-[15px] transition-all duration-300 hover:scale-125 cursor-pointer"></img>
                     </div>
                     <div className='px-5'>
-                        <div  className='flex flex-col justify-center items-center sm:items-start py-1'>
+                        <div className='flex flex-col justify-center items-start sm:items-start py-1'>
                             <div className='py-1'>
                                 <p className='text-gray-500 font-semibold'>{questionBody}</p>
                             </div>
@@ -92,7 +92,7 @@ const QuestionDetail = () => {
                                 {questionTags && questionTags.map((tag, index) => (<p key={index} className="rounded-[5px] bg-[#a7dafca4] text-[#335977] px-2 py-1 mr-1 my-1 inline-block">{tag}</p>))}
                             </div>
                         </div>
-                        <div className='flex justify-center items-center sm:items-start py-1'>
+                        <div className='flex justify-center items-center md:items-start py-1'>
                             <CopyToClipboard text={url}>
                                 <Button
                                     onClick={handleShare}
@@ -107,7 +107,7 @@ const QuestionDetail = () => {
                                     classnames="px-5 py-2 border-2 border-red-600 text-[14px] text-red-600 rounded-md hover:bg-red-500 hover:text-white  font-semibold transition-all ease-in-out duration-300 hover:scale-110 ml-2 cursor-pointer" />
 
                             }
-                            <div className='flex flex-col justify-center items-center p-5 order-1 md:order-none sm:hidden'>
+                            <div className='flex flex-col justify-center items-center p-5 order-1 md:order-none md:hidden'>
                                 <img
                                     src={UpVote}
                                     onClick={handleUpVote}
@@ -125,9 +125,9 @@ const QuestionDetail = () => {
                             <div>
                                 {Users?.filter((user) => (user?.name === userPosted)).map((user, index) => (
                                     <Link
-                                    key={index}
-                                    to={`/users/${user?._id}`}
-                                    className='flex justify-center items-center mr-2'>
+                                        key={index}
+                                        to={`/users/${user?._id}`}
+                                        className='flex justify-center items-center mr-2'>
                                         <Avatar
                                             name={userPosted?.charAt(0).toUpperCase()}
                                             classnames='rounded-[50%] bg-purple-600 text-white text-[20px]  py-2 px-4 mr-2' />
@@ -135,9 +135,9 @@ const QuestionDetail = () => {
                                     </Link>
                                 ))}
                             </div>
-                                    <div>
-                                        <p >Asked :<span className='font-semibold'> {moment(postedOn).fromNow()}</span></p>
-                                    </div>
+                            <div>
+                                <p >Asked :<span className='font-semibold'> {moment(postedOn).fromNow()}</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
