@@ -14,7 +14,6 @@ import AskQuestions from "./AskQuestions";
 import Tags from "./Tags";
 import Users from "./Users.jsx";
 import UserDetails from "./UserDetails.jsx";
-import SmallDeviceMenuBar from "./SmallDeviceMenuBar";
 
 
 
@@ -36,7 +35,7 @@ export {
     Tags,
     Users,
     UserDetails,
-    SmallDeviceMenuBar
+
 
 
 };

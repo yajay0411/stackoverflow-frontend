@@ -24,7 +24,7 @@ const Users = () => {
                 <div className='w-[200px]'>
                     <SearchInput
                         image={Search}
-                        imageclass="w-[14px]  relative top-[28px] left-[15px] z-[9]"
+                        imageclass="w-[14px]  relative top-[28px] left-[15px] z-[1]"
                         placeholdertext="Search Tags..."
                         classnames='text-[14px] outline-blue-300 focus:shadow-md shadow-blue-200 p-2 pl-10 border-2 border-gray-300 rounded-sm relative w-[100%]' />
                 </div>

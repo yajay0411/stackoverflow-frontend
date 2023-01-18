@@ -1,4 +1,4 @@
-import { Navbar, AllRoute, Footer, LeftSideBar, SmallDeviceMenuBar } from "./components/index.js"
+import { Navbar, AllRoute, Footer, LeftSideBar } from "./components/index.js"
 import { GetAllQuestions } from './redux/actions/questionsActions';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -17,15 +17,15 @@ function App() {
   return (
     <div className="flex flex-col relative">
       <Navbar />
-      <div className='flex justify-center min-h-[90vh]'>
-        <div className="w-[15%] border-r-2 hidden md:flex">
+      <div className='flex min-h-[100vh]'>
+        <div className="w-[20%] border-r-2 hidden sm:flex">
           <LeftSideBar />
         </div>
-        <div className="w-full md:w-[80%] mb-10 sm:mb-0">
+        <div className="w-full mb-10 sm:mb-0">
           <AllRoute />
           <KommunicateChat />
-          <Footer />
         </div>
+        <Footer />
       </div>
     </div>
   )

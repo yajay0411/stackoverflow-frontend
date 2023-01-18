@@ -56,8 +56,7 @@ export const DeleteAnswer = ({ questionID, answerID, noOfAnswers }, navigate) =>
     try {
         const { data } = await deleteAnswer(questionID, noOfAnswers, answerID);
         await dispatch({ type: "DELETE_ANSWER", payload: data });
-        await dispatch(GetAllQuestions());
-        navigate("/")
+        dispatch(GetSelectedQuestion(questionID));
     } catch (error) {
         console.log(error.message);
     }
