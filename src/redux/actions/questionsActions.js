@@ -1,5 +1,4 @@
 import { postQuestion, getAllQuestions, getSelectedQuestion, deleteSelectedQuestion, postAnswer, deleteAnswer, voteQuestion } from "../../API/api.js";
-import { getCurrentUser } from "./currentUserActions.js";
 
 
 export const AskQuestion = (questionData, navigate) => async (dispatch) => {
@@ -34,6 +33,7 @@ export const GetSelectedQuestion = (questionID) => async (dispatch) => {
 export const DeleteSelectedQuestion = (questionID, navigate) => async (dispatch) => {
     try {
         const { data } = await deleteSelectedQuestion(questionID);
+        console.log(data)
         await dispatch({ type: "DELETE_SELECTED_QUESTION", payload: data });
         await dispatch(GetAllQuestions())
         navigate("/")
@@ -52,7 +52,7 @@ export const PostAnswer = ({ questionID, noOfAnswers, answerBody, userAnswered, 
     }
 }
 
-export const DeleteAnswer = ({ questionID, answerID, noOfAnswers }, navigate) => async (dispatch) => {
+export const DeleteAnswer = ({ questionID, answerID, noOfAnswers }) => async (dispatch) => {
     try {
         const { data } = await deleteAnswer(questionID, noOfAnswers, answerID);
         await dispatch({ type: "DELETE_ANSWER", payload: data });

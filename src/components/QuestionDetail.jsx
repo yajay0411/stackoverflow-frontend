@@ -19,7 +19,7 @@ const QuestionDetail = () => {
     const location = useLocation()
     const url = "http://localhost:5173" + location.pathname;
     const handleShare = () => {
-        alert("copied page url:" + "http://localhost:5173" + location.pathname)
+        alert("copied page url")
     }
 
     const { questionID } = useParams();

@@ -13,6 +13,12 @@ import DownVote from "./DownVote.svg"
 import Menu from "./menu-bar.png"
 import Home from "./home.svg";
 import Community from "./community.svg";
+import HeartNotGiven from "./HeartNotGiven.svg";
+import HeartGiven from "./HeartGiven.svg";
+import Delete from "./DELETE.svg";
+import Comment from "./COMMENT.svg";
+import LeftArrow from "./LeftArrow.svg";
+import Share from "./Share.svg";
 
 
 
@@ -34,7 +40,14 @@ export {
     DownVote,
     Menu,
     Home,
-    Community
+    Community,
+    HeartGiven,
+    HeartNotGiven,
+    Delete,
+    Comment,
+    LeftArrow,
+    Share
+
 
 
 }

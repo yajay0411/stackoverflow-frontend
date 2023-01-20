@@ -15,8 +15,8 @@ import Tags from "./Tags";
 import Users from "./Users.jsx";
 import UserDetails from "./UserDetails.jsx";
 import Community from "./Community.jsx";
-
-
+import CreatePost from "./CreatePost.jsx";
+import PostDetail from "./PostDetail.jsx";
 
 
 export {
@@ -37,6 +37,8 @@ export {
     Users,
     UserDetails,
     Community,
+    CreatePost,
+    PostDetail,
 
 
 
