@@ -14,6 +14,7 @@ import AskQuestions from "./AskQuestions";
 import Tags from "./Tags";
 import Users from "./Users.jsx";
 import UserDetails from "./UserDetails.jsx";
+import Community from "./Community.jsx";
 
 
 
@@ -35,6 +36,7 @@ export {
     Tags,
     Users,
     UserDetails,
+    Community,
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
-import { Home, Auth, Question, AskQuestions, Tags, Users, QuestionDetail, UserDetails } from './index.js';
+import { Home, Auth, Question, AskQuestions, Tags, Users, QuestionDetail, UserDetails, Community } from './index.js';
 
 
 const AllRoute = () => {
@@ -15,6 +15,7 @@ const AllRoute = () => {
         <Route exact path='/tags' element={<Tags />} />
         <Route exact path='/users' element={<Users />} />
         <Route exact path='/users/:userId' element={<UserDetails />} />
+        <Route exact path='/community' element={<Community />} />
       </Routes>
     </div>
   )

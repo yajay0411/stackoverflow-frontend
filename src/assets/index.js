@@ -12,6 +12,7 @@ import UpVote from "./UpVote.svg"
 import DownVote from "./DownVote.svg"
 import Menu from "./menu-bar.png"
 import Home from "./home.svg";
+import Community from "./community.svg";
 
 
 
@@ -32,7 +33,8 @@ export {
     UpVote,
     DownVote,
     Menu,
-    Home
+    Home,
+    Community
 
 
 }

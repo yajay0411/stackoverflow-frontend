@@ -1,16 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Home } from '../assets';
 import { AsideBarNavLink } from '../constants'
 import "../index.css";
 
 const LeftSideBar = () => {
     return (
         <>
-            <div className='fixed bg-white sm:bg-transparent top-16 shadow-lg border-2 sm:shadow-none sm:border-none px-3 md:px-5'>
+            <div className='sm:w-[18.5%] fixed bg-white sm:bg-transparent top-16 shadow-lg border-2 sm:shadow-none sm:border-none px-3 md:px-5'>
                 <NavLink to="/"  >
-                    <div className='active:bg-gray-100 active:border-r-4 border-orange-400 py-3  text-[14px] text-gray-500 active:font-bold active:text-black
+                    <div className='flex justify-start items-center active:bg-gray-100 active:border-r-4 border-orange-400 py-3  text-[14px] text-gray-500 active:font-bold active:text-black
                      hover:text-black'>
-                        Home
+                        <img src={Home} className="w-[16px] m-1" />
+                        <p className='p-1'>Home</p>
                     </div>
                 </NavLink>
                 <div className='w-full flex flex-col py-2 text-gray-500 text-[14px]'>
