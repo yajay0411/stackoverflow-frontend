@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Button } from './index';
 import moment from 'moment';
-import { GetUserData, UpdateUserData } from '../redux/actions/userActions';
+import { FollowUser, GetUserData, UpdateUserData } from '../redux/actions/userActions';
 import { getCurrentUser } from '../redux/actions/currentUserActions';
 
 
@@ -53,14 +53,18 @@ const UserDetails = () => {
         } else {
             dispatch(UpdateUserData(userId, { name, about, tags }))
         }
+        setEditProfile((prev) => (!prev));
 
     }
 
+    const handlefollow = () => {
+        dispatch(FollowUser({ _id: userId, value: "follow", userId: User?.result?._id, updateData: { name, about, tags } }))
+    }
 
 
     return (
 
-        <div className='w-full flex flex-col-reverse sm:flex-row sm:mx-2 sm:my-5' >
+        <div className='w-full flex flex-col-reverse md:flex-row p-1 sm:p-5' >
             <div className='w-full'>
                 {User && userDetail && User?.result?._id == userDetail?._id && <div className='flex justify-center items-center'>
                     {!editProfile && <Button
@@ -77,42 +81,80 @@ const UserDetails = () => {
                         className='flex flex-col justify-center items-center shadow-lg my-2 mx-auto border-2 '
                         key={userDetail?._id}>
                         <div className='w-full flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 border-b-2 overflow-hidden'>
-                            <div className='flex flex-col justify-center items-center sm:m-5'>
-                                <div>
-                                    <Avatar
-                                        name={userDetail?.name.charAt(0).toUpperCase()}
-                                        classnames='rounded-[10px] bg-orange-500 font-semibold text-white text-[40px]  py-1 sm:py-3 px-5 sm:px-8' />
+                            <div className='w-full flex flex-col justify-center items-center'>
+                                <div className='w-full flex flex-row sm:flex-col justify-between items-center sm:justify-start sm:items-start mb-5'>
+                                    <div>
+                                        <Avatar
+                                            name={userDetail?.name.charAt(0).toUpperCase()}
+                                            classnames='rounded-[10px] bg-orange-500 font-semibold text-white text-[40px]  py-1 sm:py-3 px-5 sm:px-8 my-2' />
+                                    </div>
+                                    {userId !== User?.result?._id && <div>
+                                        {
+                                            userDetail?.followers?.includes(User?.result?._id) ?
+                                                (<>
+                                                    <div className='flex flex-col justify-center items-start'>
+                                                        <p className='text-[15px] text-gray-400 mr-2 my-1'>Following    {userDetail?.name.toLowerCase()}</p>
+                                                        <Button
+                                                            onClick={handlefollow}
+                                                            name="Unfollow"
+                                                            classnames="flex justify-center px-5 py-1
+                                                    border-2 border-red-500 text-[14px] text-red-500 rounded-md font-semibold transition-all ease-in-out duration-300 hover:scale-105 flex" />
+                                                    </div>
+                                                </>
+
+                                                ) :
+                                                (
+                                                    <Button
+                                                        onClick={handlefollow}
+                                                        name="follow"
+                                                        classnames="w-full flex justify-center px-6 py-1 border-2 border-blue-500 text-[14px] rounded-md bg-blue-500 text-white font-semibold transition-all ease-in-out duration-300 hover:scale-105 flex" />
+                                                )
+                                        }
+                                    </div>}
                                 </div>
                             </div>
-                            <div className='flex flex-col justify-start items-start'>
-                                <div className='w-full flex flex-col sm:flex-row justify-between items-start py-1  text-[14px] '>
-                                    <p className='font-semibold mr-2'>Name :</p><span>{userDetail?.name.toUpperCase()}</span>
+                            <div className='w-full flex flex-col justify-start items-start'>
+                                <div className='w-full flex flex-row justify-between items-start py-1  text-[14px] '>
+                                    <p className='w-[30%] font-semibold mr-1'>Name :</p><span className="w-[70%]">{userDetail?.name.toUpperCase()}</span>
                                 </div>
-                                <div className='w-full flex flex-col sm:flex-row justify-between items-start py-1 text-[14px] ' >
-                                    <p className='font-semibold mr-2'>Id :</p><span>{userDetail?._id}</span>
+                                <div className='w-full flex flex-row justify-between items-start py-1 text-[14px] ' >
+                                    <p className='w-[30%] font-semibold mr-1'>Id :</p><span className="w-[70%]">{userDetail?._id}</span>
                                 </div>
-                                <div className='w-full flex flex-col sm:flex-row justify-between items-start  py-1  text-[14px] '>
-                                    <p className='font-semibold mr-2'>E-mail :</p><span>{userDetail?.email}</span>
+                                <div className='w-full flex flex-row justify-between items-start  py-1  text-[14px] '>
+                                    <p className='w-[30%] font-semibold mr-1'>E-mail :</p><span className="w-[70%]">{userDetail?.email}</span>
                                 </div>
-                                <div className='w-full flex flex-col sm:flex-row justify-between items-start  py-1 F text-[14px] '>
-                                    <p className='font-semibold mr-2'>Joined On :</p><span>{moment(userDetail?.joinedOn).format("Do MMMM  YYYY")}</span>
+                                <div className='w-full flex flex-row justify-between items-start  py-1 F text-[14px] '>
+                                    <p className='w-[30%] font-semibold mr-1'>Joined On :</p><span className="w-[70%]">{moment(userDetail?.joinedOn).format("Do MMMM  YYYY")}</span>
+                                </div>
+                                <div className='w-full flex flex-row justify-between items-start  py-1 F text-[14px] '>
+                                    <p className='w-[30%] font-semibold mr-1'>Followers :</p><span className="w-[70%]">{userDetail?.followers.length}</span>
+                                </div>
+                                <div className='w-full flex flex-row justify-between items-start  py-1 F text-[14px] '>
+                                    <p className='w-[30%] font-semibold mr-1'>Following :</p><span className="w-[70%]">{userDetail?.following.length}</span>
                                 </div>
                             </div>
                         </div>
                         <div className='w-full flex flex-col justify-center items-center m-5'>
                             <div className='w-full flex flex-col sm:flex-row justify-between items-start sm:items-center py-1 px-5  text-[14px] ' >
-                                <div>
+                                <div className='w-full'>
                                     <p className='font-semibold'>Tags watched :</p>
                                 </div>
-                                <div className='flex flex-col sm:flex-row '>
-                                    {userDetail?.tags.map((tag, index) => (<span key={index} className="rounded-[10px] bg-[#8ed6f3] text-[#034058] px-2 py-2 my-2 sm:mx-1 text-center">{tag}</span>))}
+                                <div className='w-full flex flex-col sm:flex-row '>
+                                    {
+                                        userDetail?.tags.map((tag, index) =>
+                                        (
+                                            <span
+                                                key={index}
+                                                className="w-[100px] rounded-md bg-[#8ed6f3] text-[#034058] px-2 py-2 my-2 sm:mr-2 text-center">{tag}</span>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className='w-full flex flex-col sm:flex-row justify-between items-start sm:items-center py-1 px-5  text-[14px] ' >
-                                <div>
+                                <div className='w-full'>
                                     <p className='font-semibold mr-2 '>About :</p>
                                 </div>
-                                <div className='flex flex-col sm:flex-row '>
+                                <div className='w-full flex flex-col sm:flex-row '>
                                     <span>{userDetail.about}</span>
                                 </div>
                             </div>
@@ -125,7 +167,6 @@ const UserDetails = () => {
             </div>
             {editProfile &&
                 <div
-                    // ref={formRef}
                     className='w-full flex flex-col justify-center items-center shadow-lg my-10 mx-auto border-2'>
                     <div className="w-full p-5 flex flex-col justify-center items-center">
                         <div>
@@ -188,9 +229,7 @@ const UserDetails = () => {
                     </div>
                 </div>
             }
-
         </div >
-
     )
 }
 export default UserDetails

@@ -6,6 +6,8 @@ const userReducer = (state = initialState, action) => {
             return state = action?.payload;
         case "UPDATE_USER_DATA":
             return state = state.map((state) => state.id === action.payload._id ? action.payload : state);
+        case "FOLLOW_USER_":
+            return state = action?.payload;
         default:
             return state;
     }

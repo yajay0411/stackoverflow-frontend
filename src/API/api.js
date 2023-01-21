@@ -38,13 +38,9 @@ export const createPost = (postData) => API.post(`/community/createPost`, postDa
 export const getAllPosts = () => API.get('/community/getAllPosts');
 export const getSelectedPost = (postID) => API.get(`/community/getSelectedPost/${postID}`);
 export const deleteSelectedPost = (postID) => API.delete(`/community/deleteSelectedPost/${postID}`);
-export const getPostPhoto = (id) => API.get(`/community/getPost/photo/${id}`);
 
 //api call for liking a post
 export const likePost = (id, value, userId) => API.patch(`/community/likePost/${id}`, { value, userId });
 
 //api call for adding a follower
-export const addFollower = (value, userId) => API.patch(`/follow/followers`, { value, userId });
-
-//api call for fetching follower
-export const fetchFollowers = () => API.get('/follow/get/followers');
+export const followUser = ({ _id, value, userId }) => API.put(`/users/follow/${_id}`, { value, userId });

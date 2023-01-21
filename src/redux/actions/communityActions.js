@@ -1,4 +1,4 @@
-import { createPost, getAllPosts, getSelectedPost, getPostPhoto, likePost, deleteSelectedPost } from "../../API/api.js";
+import { createPost, getAllPosts, getSelectedPost, likePost, deleteSelectedPost } from "../../API/api.js";
 
 export const SharePost = (postData, navigate) => async (dispatch) => {
     try {
@@ -35,14 +35,6 @@ export const DeletePost = (PostID, navigate) => async (dispatch) => {
         dispatch({ type: 'DELETE_A_POST', payload: data });
         dispatch(FetchAllPosts());
         navigate("/community")
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export const GetPhoto = (id) => async () => {
-    try {
-        await getPostPhoto(id);
     } catch (error) {
         console.log(error);
     }
