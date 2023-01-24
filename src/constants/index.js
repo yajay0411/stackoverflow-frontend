@@ -34,6 +34,12 @@ export const AsideBarNavLink = [
         to: "/community",
         img: Community,
         name: "Community"
+    },
+    {
+        key: 5,
+        to: "/subscriptionplan",
+        img: "",
+        name: "Buy Subscription"
     }
 ]
 

@@ -2,7 +2,7 @@ import axios from "axios";
 
 //base URL for our Server 
 const API = axios.create({
-    baseURL: "https://calm-rose-beetle-toga.cyclic.app"
+    baseURL: "http://localhost:5000"
 });
 
 //Token verification
@@ -50,3 +50,10 @@ export const likePost = (id, value, userId) => API.patch(`/community/likePost/${
 
 //api call for adding a follower
 export const followUser = ({ _id, value, userId }) => API.put(`/users/follow/${_id}`, { value, userId });
+
+
+//api call for fetching subscription plan.
+export const getSubscriptionPlan = () => API.get('/subs/prices');
+
+//api call for buying a plan
+export const planPayment = ({id, email}) => API.post('/subs/session',{ id, email});

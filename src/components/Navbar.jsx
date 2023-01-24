@@ -100,7 +100,7 @@ const Navbar = () => {
                                 <>
                                     <Link to={`/users/${User?.result?._id}`}>
                                         <Avatar
-                                            name={User?.result?.name.charAt(0).toUpperCase() || "You"}
+                                            name={User?.result?.name?.charAt(0).toUpperCase() || "You"}
                                             classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-1 sm:m-2 py-2 px-4' />
                                     </Link>
                                     <Button

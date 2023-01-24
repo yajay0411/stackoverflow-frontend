@@ -19,6 +19,7 @@ import UserDetails from "./UserDetails.jsx";
 import Community from "./Community.jsx";
 import CreatePost from "./CreatePost.jsx";
 import PostDetail from "./PostDetail.jsx";
+import SubscriptionPlan from "./SubscriptionPlan.jsx";
 
 
 export {
@@ -43,6 +44,7 @@ export {
     Community,
     CreatePost,
     PostDetail,
+    SubscriptionPlan,
 
 
 
