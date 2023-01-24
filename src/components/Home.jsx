@@ -80,7 +80,7 @@ const Home = () => {
                                                 <div className='flex my-1'>
 
 
-                                                    {Users && Users.filter((users) => (users.name === userPosted)).map((user, index) => (
+                                                    {Users && Users?.filter((users) => (users?.name === userPosted)).map((user, index) => (
                                                         <Link
                                                             key={index}
                                                             to={`/users/${user._id}`}

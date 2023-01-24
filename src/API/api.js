@@ -19,7 +19,7 @@ export const signUp = (authData) => API.post("/users/signup", authData);
 export const logoutUser = (authData) => API.post("/users/logout", authData);
 
 //api for OTP Functionalities
-export const sendOtpEmail = (authData) => API.post("/users/sendemail", authData);
+export const sendOtpEmail = ({ email, value }) => API.post("/users/sendemail", { email, value });
 export const verifyUser = (authData) => API.post("/users/authenticateuser", authData);
 export const resetPassword = (authData) => API.post("/users/changepassword", authData);
 

@@ -6,6 +6,7 @@ import { Delete, HeartGiven, Logo, Share } from '../assets';
 import { DeletePost, FetchAllPosts, LikePost } from '../redux/actions/communityActions';
 import { Avatar, Button, CreatePost } from "./index";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { getCurrentUser } from '../redux/actions/currentUserActions';
 
 const Community = () => {
 
@@ -14,6 +15,7 @@ const Community = () => {
 
     useEffect(() => {
         dispatch(FetchAllPosts(dispatch));
+        dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
     }, [dispatch]);
 
     const allPostData = useSelector((state) => (state?.communityReducer.data));

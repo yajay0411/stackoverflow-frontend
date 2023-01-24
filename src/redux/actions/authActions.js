@@ -24,9 +24,9 @@ export const login = (authData, navigate) => async (dispatch) => {
     }
 };
 
-export const SendOtpEmail = (authData) => async () => {
+export const SendOtpEmail = ({ email, value }) => async () => {
     try {
-        await sendOtpEmail(authData);
+        await sendOtpEmail({ email, value });
     } catch (error) {
         console.log(error)
     }
