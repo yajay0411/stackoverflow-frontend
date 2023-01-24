@@ -1,17 +1,19 @@
-import Navbar from "./Navbar";
-import Avatar from "./Avatar";
-import AllRoute from "./AllRoute";
-import Footer from "./Footer";
-import Home from "./Home";
-import Auth from "./Auth";
-import LeftSideBar from "./LeftSideBar";
-import RightSideBar from "./RightSideBar";
-import SearchInput from "./SearchInput";
-import Button from "./Button";
-import Question from "./Question";
-import QuestionDetail from "./QuestionDetail";
-import AskQuestions from "./AskQuestions";
-import Tags from "./Tags";
+import Navbar from "./Navbar.jsx";
+import Avatar from "./Avatar.jsx";
+import AllRoute from "./AllRoute.jsx";
+import Footer from "./Footer.jsx";
+import Home from "./Home.jsx";
+import Auth from "./Auth.jsx";
+import ResetPassword from "./ResetPassword.jsx";
+import AuthenticateUser from "./AuthenticateUser.jsx";
+import LeftSideBar from "./LeftSideBar.jsx";
+import RightSideBar from "./RightSideBar.jsx";
+import SearchInput from "./SearchInput.jsx";
+import Button from "./Button.jsx";
+import Question from "./Question.jsx";
+import QuestionDetail from "./QuestionDetail.jsx";
+import AskQuestions from "./AskQuestions.jsx";
+import Tags from "./Tags.jsx";
 import Users from "./Users.jsx";
 import UserDetails from "./UserDetails.jsx";
 import Community from "./Community.jsx";
@@ -26,6 +28,8 @@ export {
     Footer,
     Home,
     Auth,
+    ResetPassword,
+    AuthenticateUser,
     RightSideBar,
     LeftSideBar,
     SearchInput,

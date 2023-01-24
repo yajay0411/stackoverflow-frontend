@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
-import { Home, Auth, Question, AskQuestions, Tags, Users, QuestionDetail, UserDetails, Community, CreatePost, PostDetail } from './index.js';
+import { Home, Auth, ResetPassword, AuthenticateUser, Question, AskQuestions, Tags, Users, QuestionDetail, UserDetails, Community, CreatePost, PostDetail } from './index.js';
 
 
 const AllRoute = () => {
@@ -9,6 +9,8 @@ const AllRoute = () => {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/auth' element={<Auth />} />
+        <Route exact path='/resetpassword' element={<ResetPassword />} />
+        <Route exact path='/authenticateuser' element={<AuthenticateUser />} />
         <Route exact path='/questions' element={<Question />} />
         <Route exact path='/questions/:questionID' element={<QuestionDetail />} />
         <Route exact path='/askquestion' element={<AskQuestions />} />

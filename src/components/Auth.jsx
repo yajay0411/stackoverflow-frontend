@@ -4,7 +4,7 @@ import { Favicon } from '../assets';
 import Button from './Button';
 import { signup, login } from '../redux/actions/authActions.js';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -57,10 +57,15 @@ const Auth = () => {
                                     className='border-2 outline-none py-1 px-2 rounded-sm'
                                     onChange={(e) => { setEmail(e.target.value) }}
                                 />
-                                <label
-                                    htmlFor="password"
-                                    className='py-1 font-medium '
-                                >Password</label>
+                                <div className='flex justify-between items-center'>
+                                    <label
+                                        htmlFor="password"
+                                        className='py-1 font-medium '
+                                    >Password</label>
+                                    <Link to="/resetpassword">
+                                        <span className='text-[14px] text-blue-400'>forgot password ?</span>
+                                    </Link>
+                                </div>
                                 <input
                                     type="text"
                                     placeholder="password"

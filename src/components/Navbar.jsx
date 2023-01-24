@@ -6,6 +6,7 @@ import { Avatar, Button, LeftSideBar, SearchInput } from './index.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentUser } from '../redux/actions/currentUserActions.js';
 import decode from "jwt-decode";
+import { LogoutUser } from '../redux/actions/authActions';
 
 const Navbar = () => {
 
@@ -20,6 +21,7 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         localStorage.removeItem("Profile");
+        dispatch(LogoutUser({ userId: User?.result?._id }));
         dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
         navigate("/");
 
@@ -94,17 +96,22 @@ const Navbar = () => {
                             />
                         </Link>) :
                         (<>
-                            <Link to={`/users/${User?.result?._id}`}>
-                                <Avatar
-                                    name={User?.result?.name.charAt(0).toUpperCase()}
-                                    classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-1 sm:m-2 py-2 px-4' />
-                            </Link>
-                            <Button
-                                onClick={handleLogOut}
-                                name="Log Out"
-                                classnames="px-2 py-1 border-2 border-blue-600 text-[14px] bg-gray-300 text-blue-600 rounded-md hover:bg-blue-500 hover:text-white  font-semibold transition-all ease-in-out duration-300 hover:scale-110 hidden sm:flex"
-                            />
+                            {User &&
+                                <>
+                                    <Link to={`/users/${User?.result?._id}`}>
+                                        <Avatar
+                                            name={User?.result?.name.charAt(0).toUpperCase() || "You"}
+                                            classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-1 sm:m-2 py-2 px-4' />
+                                    </Link>
+                                    <Button
+                                        onClick={handleLogOut}
+                                        name="Log Out"
+                                        classnames="px-2 py-1 border-2 border-blue-600 text-[14px] bg-gray-300 text-blue-600 rounded-md hover:bg-blue-500 hover:text-white  font-semibold transition-all ease-in-out duration-300 hover:scale-110 hidden sm:flex"
+                                    />
+                                </>
+                            }
                         </>
+
                         )
                     }
                 </div>
