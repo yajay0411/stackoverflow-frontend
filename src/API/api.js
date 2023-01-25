@@ -2,7 +2,7 @@ import axios from "axios";
 
 //base URL for our Server 
 const API = axios.create({
-    baseURL: "https://calm-rose-beetle-toga.cyclic.app"
+    baseURL: "http://localhost:5000"
 });
 
 //Token verification
@@ -40,7 +40,7 @@ export const deleteAnswer = (questionID, noOfAnswers, answerID) => API.patch(`/a
 
 
 //api call for posting a Post, fetching all post, fetching selected post,fetching photos 
-export const createPost = (postData) => API.post(`/community/createPost`, postData);
+export const createPost = (postData) => API.post(`/community/createPost`, postData, { "Content-Type": "multipart/form-data" });
 export const getAllPosts = () => API.get('/community/getAllPosts');
 export const getSelectedPost = (postID) => API.get(`/community/getSelectedPost/${postID}`);
 export const deleteSelectedPost = (postID) => API.delete(`/community/deleteSelectedPost/${postID}`);
@@ -56,4 +56,4 @@ export const followUser = ({ _id, value, userId }) => API.put(`/users/follow/${_
 export const getSubscriptionPlan = () => API.get('/subs/prices');
 
 //api call for buying a plan
-export const planPayment = ({id, email}) => API.post('/subs/session',{ id, email});
+export const planPayment = ({ id, email }) => API.post('/subs/session', { id, email });
