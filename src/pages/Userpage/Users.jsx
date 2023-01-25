@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { Avatar } from './index';
-import SearchInput from './SearchInput';
-import { Search } from '../assets'
+import { Avatar } from '../../components/index';
+import SearchInput from '../../components/SearchInput';
+import { Search } from '../../assets'
 import { useDispatch, useSelector } from 'react-redux';
-import { GetUserData } from '../redux/actions/userActions';
+import { GetUserData } from '../../redux/actions/userActions';
 import { Link } from 'react-router-dom';
 
 const Users = () => {

@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { ResetPass, SendOtpEmail } from '../redux/actions/authActions'
-import Button from './Button'
+import { ResetPass, SendOtpEmail } from '../../redux/actions/authActions'
+import Button from '../../components/Button'
 
 const ResetPassword = () => {
     const [email, setemail] = useState("");

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Avatar, Button, RightSideBar } from './index';
+import { Avatar, Button, RightSideBar } from '../../components/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetAllQuestions } from '../redux/actions/questionsActions';
-import { GetUserData } from '../redux/actions/userActions';
+import { GetAllQuestions, GetSelectedQuestion } from '../../redux/actions/questionsActions';
+import { GetUserData } from '../../redux/actions/userActions';
 import moment from "moment";
 
 
-const Question = () => {
+const Home = () => {
     const dispatch = useDispatch();
 
 
@@ -80,7 +80,7 @@ const Question = () => {
                                                 <div className='flex my-1'>
 
 
-                                                    {Users && Users.filter((users) => (users.name === userPosted)).map((user, index) => (
+                                                    {Users && Users?.filter((users) => (users?.name === userPosted)).map((user, index) => (
                                                         <Link
                                                             key={index}
                                                             to={`/users/${user._id}`}
@@ -107,4 +107,4 @@ const Question = () => {
     )
 }
 
-export default Question
+export default Home

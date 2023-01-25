@@ -3,10 +3,10 @@ import React, { useEffect } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Delete, HeartGiven, LeftArrow, Logo, Share } from '../assets/index.js';
-import { DeletePost, FetchSelectedPost, LikePost } from "../redux/actions/communityActions.js"
-import Avatar from './Avatar.jsx';
-import Button from './Button.jsx';
+import { Delete, HeartGiven, LeftArrow, Logo, Share } from '../../assets/index.js';
+import { DeletePost, FetchSelectedPost, LikePost } from "../../redux/actions/communityActions.js"
+import Avatar from '../../components/Avatar.jsx';
+import Button from '../../components/Button.jsx';
 
 const PostDetail = () => {
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from './index.js';
+import { Button } from '../../components/index.js';
 
 //import action 
-import { SharePost } from '../redux/actions/communityActions.js';
+import { SharePost } from '../../redux/actions/communityActions.js';
 
 
 const CreatePost = () => {

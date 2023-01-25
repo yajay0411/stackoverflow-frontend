@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { Favicon } from '../assets';
-import Button from './Button';
-import { signup, login } from '../redux/actions/authActions.js';
+import { Favicon } from '../../assets';
+import Button from '../../components/Button';
+import { signup, login } from '../../redux/actions/authActions.js';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 

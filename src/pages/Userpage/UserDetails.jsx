@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Avatar, Button } from './index';
+import { Avatar, Button } from '../../components/index';
 import moment from 'moment';
-import { FollowUser, GetUserData, UpdateUserData } from '../redux/actions/userActions';
-import { getCurrentUser } from '../redux/actions/currentUserActions';
+import { FollowUser, GetUserData, UpdateUserData } from '../../redux/actions/userActions';
+import { getCurrentUser } from '../../redux/actions/currentUserActions';
 
 
 const UserDetails = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchInput from './SearchInput';
-import { Search } from '../assets';
-import { tagsForTagsPage } from '../constants';
+import SearchInput from '../../components/SearchInput';
+import { Search } from '../../assets';
+import { tagsForTagsPage } from '../../constants';
 
 
 

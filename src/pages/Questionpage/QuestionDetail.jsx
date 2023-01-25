@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { UpVote, DownVote } from "../assets/index";
-import { Avatar, Button } from './index.js';
-import { DeleteAnswer, DeleteSelectedQuestion, GetSelectedQuestion, PostAnswer, VoteQuestion } from '../redux/actions/questionsActions';
+import { UpVote, DownVote } from "../../assets/index";
+import { Avatar, Button } from '../../components/index.js';
+import { DeleteAnswer, DeleteSelectedQuestion, GetSelectedQuestion, PostAnswer, VoteQuestion } from '../../redux/actions/questionsActions';
 
 import moment from 'moment';
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { getCurrentUser } from '../redux/actions/currentUserActions';
-import { GetUserData } from '../redux/actions/userActions';
+import { getCurrentUser } from '../../redux/actions/currentUserActions';
+import { GetUserData } from '../../redux/actions/userActions';
 
 const QuestionDetail = () => {
 

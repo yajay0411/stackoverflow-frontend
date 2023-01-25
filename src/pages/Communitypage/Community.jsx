@@ -2,11 +2,11 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Delete, HeartGiven, Logo, Share } from '../assets';
-import { DeletePost, FetchAllPosts, LikePost } from '../redux/actions/communityActions';
-import { Avatar, Button, CreatePost } from "./index";
+import { Delete, HeartGiven, Logo, Share } from '../../assets';
+import { DeletePost, FetchAllPosts, LikePost } from '../../redux/actions/communityActions';
+import { Avatar, Button, CreatePost } from "../../components/index";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { getCurrentUser } from '../redux/actions/currentUserActions';
+import { getCurrentUser } from '../../redux/actions/currentUserActions';
 
 const Community = () => {
 

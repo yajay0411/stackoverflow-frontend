@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Login } from '../assets';
-import { RightSideBar, Button } from './index';
+import { Login } from '../../assets';
+import { RightSideBar, Button } from '../../components/index';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { AskQuestion } from "../redux/actions/questionsActions.js";
+import { AskQuestion } from "../../redux/actions/questionsActions.js";
 
 const AskQuestions = () => {
     const [questionTitle, setQuestionTitle] = useState("");
