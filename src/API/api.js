@@ -2,7 +2,7 @@ import axios from "axios";
 
 //base URL for our Server 
 const API = axios.create({
-    baseURL: "https://calm-rose-beetle-toga.cyclic.app"
+    baseURL: "http://localhost:5000"
 });
 
 //Token verification
