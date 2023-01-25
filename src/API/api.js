@@ -2,7 +2,7 @@ import axios from "axios";
 
 //base URL for our Server 
 const API = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://calm-rose-beetle-toga.cyclic.app"
 });
 
 //Token verification
@@ -28,7 +28,7 @@ export const getUserData = () => API.get("/users/usersdata");
 export const updateUserProfile = (userId, updateData) => API.patch(`/users/updateuserdata/${userId}`, updateData);
 
 //api call related posting, deleting, fetching all questions or selected question,voting question
-export const postQuestion = (questionData) => API.post("/questions/askquestion", questionData, { "Content-Type": "multipart/form-data" });
+export const postQuestion = (questionData) => API.post("/questions/askquestion", questionData, { "Access-Control-Allow-Private-Network": true, "Content-Type": "multipart/form-data" });
 export const getAllQuestions = () => API.get("/questions/getallquestions");
 export const getSelectedQuestion = (questionID) => API.get(`/questions/getselectedquestion/${questionID}`);
 export const deleteSelectedQuestion = (questionID) => API.delete(`/questions/deleteselectedquestion/${questionID}`);
