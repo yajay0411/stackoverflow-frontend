@@ -28,7 +28,7 @@ export const getUserData = () => API.get("/users/usersdata");
 export const updateUserProfile = (userId, updateData) => API.patch(`/users/updateuserdata/${userId}`, updateData, { "Access-Control-Allow-Private-Network": true });
 
 //api call related posting, deleting, fetching all questions or selected question,voting question
-export const postQuestion = (questionData) => API.post("/questions/askquestion", questionData, { "Access-Control-Allow-Private-Network": true, "Content-Type": "multipart/form-data" });
+export const postQuestion = (questionData) => API.post("/questions/askquestion", questionData, { "Access-Control-Allow-Private-Network": true });
 export const getAllQuestions = () => API.get("/questions/getallquestions");
 export const getSelectedQuestion = (questionID) => API.get(`/questions/getselectedquestion/${questionID}`);
 export const deleteSelectedQuestion = (questionID) => API.delete(`/questions/deleteselectedquestion/${questionID}`, { "Access-Control-Allow-Private-Network": true });
