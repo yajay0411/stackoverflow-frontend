@@ -20,8 +20,8 @@ export const logoutUser = (authData) => API.post("/users/logout", authData);
 
 //api for OTP Functionalities
 export const sendOtpEmail = ({ email, value }) => API.post("/users/sendemail", { email, value });
-export const verifyUser = (authData) => API.post("/users/authenticateuser", authData);
-export const resetPassword = (authData) => API.post("/users/changepassword", authData);
+export const verifyUser = (authData) => API.post("/users/authenticateuser", authData, { "Access-Control-Allow-Private-Network": true });
+export const resetPassword = (authData) => API.post("/users/changepassword", authData, { "Access-Control-Allow-Private-Network": true });
 
 //api call for getting all user data and selected user data
 export const getUserData = () => API.get("/users/usersdata");
