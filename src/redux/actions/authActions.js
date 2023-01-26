@@ -1,4 +1,4 @@
-import { signUp, logIn, verifyUser, logoutUser, resetPassword, sendOtpEmail } from "../../API/api.js";
+import { signUp, logIn, verifyUser, resetPassword, sendOtpEmail } from "../../API/api.js";
 import { getCurrentUser } from "./currentUserActions.js";
 
 export const signup = (authData, navigate) => async (dispatch) => {
@@ -52,10 +52,10 @@ export const ResetPass = (authData, navigate) => async () => {
         console.log(error)
     }
 };
-export const LogoutUser = (userId) => async () => {
-    try {
-        await logoutUser(userId);
-    } catch (error) {
-        console.log(error)
-    }
-};
+// export const LogoutUser = (userId) => async () => {
+//     try {
+//         await logoutUser(userId);
+//     } catch (error) {
+//         console.log(error)
+//     }
+// };

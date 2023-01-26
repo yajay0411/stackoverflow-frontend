@@ -17,7 +17,7 @@ API.interceptors.request.use((req) => {
 //api call for auth
 export const logIn = (authData) => API.post("/users/login", authData);
 export const signUp = (authData) => API.post("/users/signup", authData);
-export const logoutUser = (authData) => API.post("/users/logout", authData);
+// export const logoutUser = (authData) => API.post("/users/logout", authData);
 
 //api for OTP Functionalities
 export const sendOtpEmail = ({ email, value }) => API.post("/users/sendemail", { email, value });

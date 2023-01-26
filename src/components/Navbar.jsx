@@ -6,7 +6,7 @@ import { Avatar, Button, LeftSideBar, SearchInput } from './index.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentUser } from '../redux/actions/currentUserActions.js';
 import decode from "jwt-decode";
-import { LogoutUser } from '../redux/actions/authActions';
+// import { LogoutUser } from '../redux/actions/authActions';
 
 const Navbar = () => {
 
@@ -27,7 +27,7 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         localStorage.removeItem("Profile");
-        dispatch(LogoutUser({ userId: userDetail?._id }));
+        // dispatch(LogoutUser({ userId: userDetail?._id }));
         dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
         navigate("/");
 

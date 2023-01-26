@@ -4,7 +4,11 @@ import { RightSideBar, Button } from '../../components/index';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { GetUserData } from '../../redux/actions/userActions';
+import { getCurrentUser } from '../../redux/actions/currentUserActions';
+
 import { AskQuestion } from "../../redux/actions/questionsActions.js";
+import { useEffect } from 'react';
 
 const AskQuestions = () => {
     const [questionTitle, setQuestionTitle] = useState("");
@@ -14,18 +18,28 @@ const AskQuestions = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        dispatch(GetUserData())
+        dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
+    }, [dispatch])
+    const User = useSelector((state) => (state.currentUserReducer?.result));
+    // console.log(User)
+
+    const Users = useSelector((state) => (state.userReducer));
+    // console.log(Users)
+
+    const userDetail = Users?.filter((user) => (user?._id === User?._id))[0];
+    // console.log(userDetail)
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(AskQuestion({ questionTitle, questionBody, questionTags, userPosted: User?.result?.name, id: User?.result?._id }, navigate))
+        dispatch(AskQuestion({ questionTitle, questionBody, questionTags, userPosted: userDetail?.name, id: userDetail?._id }, navigate))
     }
-
-    const User = useSelector((state) => (state.currentUserReducer));
-    //console.log(User)
 
     return (
         <>
             {
-                !User ?
+                !userDetail ?
                     (<div className='w-full flex flex-col justify-between items-center p-5 m-3 ' >
                         <img
                             src={Login} alt="go to login page"
@@ -38,7 +52,7 @@ const AskQuestions = () => {
                         </Link>
                     </div>) :
                     (<>
-                        {User?.result?.verified === false ?
+                        {userDetail?.verified === false ?
                             (<div className='w-full flex flex-col justify-between items-center p-5 m-3 ' >
                                 <img
                                     src={Login} alt="go to login page"
