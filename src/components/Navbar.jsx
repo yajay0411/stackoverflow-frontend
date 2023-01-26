@@ -16,12 +16,18 @@ const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
 
-    const User = useSelector((state) => { return state.currentUserReducer })
+    const User = useSelector((state) => { return state.currentUserReducer?.result })
     // console.log(User)
+
+    const Users = useSelector((state) => { return state.userReducer })
+    // console.log(Users)
+
+    const userDetail = Users?.filter((user) => (user?._id === User?._id))[0];
+    // console.log(userDetail)
 
     const handleLogOut = () => {
         localStorage.removeItem("Profile");
-        dispatch(LogoutUser({ userId: User?.result?._id }));
+        dispatch(LogoutUser({ userId: userDetail?._id }));
         dispatch(getCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
         navigate("/");
 
@@ -96,11 +102,11 @@ const Navbar = () => {
                             />
                         </Link>) :
                         (<>
-                            {User &&
+                            {userDetail &&
                                 <>
-                                    <Link to={`/users/${User?.result?._id}`}>
+                                    <Link to={`/users/${userDetail?._id}`}>
                                         <Avatar
-                                            name={User?.result?.name?.charAt(0).toUpperCase() || "You"}
+                                            name={userDetail?.name?.charAt(0).toUpperCase()}
                                             classnames='rounded-[50%] bg-purple-600 text-white text-[20px] m-1 sm:m-2 py-2 px-4' />
                                     </Link>
                                     <Button
