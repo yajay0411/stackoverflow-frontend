@@ -2,8 +2,8 @@ import axios from "axios";
 
 //base URL for our Server 
 const API = axios.create({
-    // baseURL: "https://hungry-cyan-pangolin.cyclic.app"
-    baseURL: "http://localhost:5000"
+    baseURL: "https://hungry-cyan-pangolin.cyclic.app"
+    // baseURL: "http://localhost:5000"
 });
 
 //Token verification
