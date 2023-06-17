@@ -31,6 +31,10 @@ const Community = () => {
         dispatch(LikePost(postID, "like", currUser?._id));
     }
 
+    const handleDeletePost = (postID) => {
+        dispatch(DeletePost(postID, navigate));
+    }
+
     //share functinality
     const location = useLocation()
     const url = "http://localhost:5173" + location.pathname;
@@ -124,12 +128,21 @@ const Community = () => {
                                             className="w-[20px] cursor-pointer transition-all duration-200 hover:scale-110 m-2" />
                                     </CopyToClipboard>
                                 </div>
+                                {userPosted && currUser?.name === userPosted &&
+                                    <div>
+                                        <img
+                                            onClick={() => (handleDeletePost(_id))}
+                                            src={Delete}
+                                            alt="DeletePost"
+                                            className='w-[20px] cursor-pointer transition-all duration-200 hover:scale-110' />
+                                    </div>
+                                }
 
                             </span>
                             <span className='w-full flex justify-start md:justify-end items-center'>
-                                {Users?.filter((user) => (user?.name === userPosted)).map((user, index) => (
+                                {Users?.filter((user) => (user?.name === userPosted)).map((user) => (
                                     <Link
-                                        key={"index"}
+                                        key={user?.name}
                                         to={`/users/${user?._id}`}
                                         className='flex justify-center items-center mr-2'>
                                         <Avatar
