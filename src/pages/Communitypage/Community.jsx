@@ -37,7 +37,7 @@ const Community = () => {
 
     //share functinality
     const location = useLocation()
-    const url = "http://localhost:5173" + location.pathname;
+    const url = "https://stackoverflow-frontend-vert.vercel.app/" + location.pathname;
     const handleSharePost = () => {
         alert("copied page url : " + url)
     }
@@ -97,14 +97,14 @@ const Community = () => {
                             <Link to={`/community/${_id}`}>
                                 {!media?.includes("mp4") ? (
                                     <img
-                                        src={`http://localhost:5000/media/${media}`}
+                                        src={`https://hungry-cyan-pangolin.cyclic.app/media/${media}`}
                                         alt="post media"
                                         controls
                                         autoPlay
                                         className='object-contain w-[90vw] max-h-[400px]  ' />
                                 ) :
                                     (<video
-                                        src={`http://localhost:5000/media/${media}`}
+                                        src={`https://hungry-cyan-pangolin.cyclic.app/media/${media}`}
                                         alt="post media"
                                         controls
                                         className='object-contain w-[90vw] max-h-[400px]  ' />
